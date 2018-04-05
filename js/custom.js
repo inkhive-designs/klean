@@ -16,3 +16,8 @@ jQuery(document).ready(function() {
 		}, 500);
 	});
 });
+
+jQuery(function(){
+    jQuery('.nav-menu').slicknav({
+    });
+});

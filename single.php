@@ -14,11 +14,11 @@ get_header(); ?>
 			
 			<?php 
 				if ( has_post_format( 'gallery' ) ) {
-					get_template_part( 'content','gallery' );
+					get_template_part( 'modules/content/content','gallery' );
 				}
 				else {
 				
-				get_template_part( 'content', 'single' ); 
+				get_template_part( 'modules/content/content', 'single' );
 				
 				}
 			

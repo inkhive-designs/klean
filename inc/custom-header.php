@@ -24,15 +24,20 @@
  */
 function klean_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'klean_custom_header_args', array(
-		'default-image'          => get_template_directory_uri(). '/images/header.jpg',
-		'default-text-color'     => '000000',
+		'default-image'          => get_template_directory_uri(). '/assets/images/header.jpg',
 		'width'                  => 1440,
 		'height'                 => 900,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'klean_header_style',
-		'admin-head-callback'    => 'klean_admin_header_style',
-		'admin-preview-callback' => 'klean_admin_header_image',
 	) ) );
+    register_default_headers( array(
+            'default-image'    => array(
+                'url'            => '%s/assets/images/header.jpg',
+                'thumbnail_url'    => '%s/assets/images/header.jpg',
+                'description'    => __('Default Header Image', 'klean')
+            )
+        )
+    );
 }
 add_action( 'after_setup_theme', 'klean_custom_header_setup' );
 
@@ -75,7 +80,7 @@ function klean_header_style() {
 		if ( get_header_image() ) :
 	?>
 		.header-image {
-			background: url(<?php echo get_header_image(); ?>) no-repeat #111;
+			background-image: url(<?php echo get_header_image(); ?>);
 			background-position: center top;
 			background-size: cover;
 		}
